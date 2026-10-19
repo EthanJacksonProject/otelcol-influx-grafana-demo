@@ -1,0 +1,30 @@
+
+fullnameOverride: influxdb
+
+image:
+  repository: influxdb
+  tag: 2.7.4-alpine
+
+adminUser:
+  organization: lab-org
+  bucket: leads
+  user: admin
+  password: local-lab-password
+  token: local-lab-token-change-me
+  retention_policy: 0s
+
+persistence:
+  enabled: false
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 1Gi
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8086
